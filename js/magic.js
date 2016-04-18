@@ -41,12 +41,10 @@ audioa.play();
   
 }
 
- function updateSource(sorz,tittle) {
-var api = flowplayer(0);
-api.conf.embed = false;
-api.conf.fullscreen = false;
-api.conf.title = 'sdfsdf';
+ function updateSource(sorz) {
+
 var type = "application/x-mpegurl";
+var subs = "subsa.vtt";
 var $_GET = {};
 
 document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
@@ -58,18 +56,24 @@ document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
 });
 
 if (typeof $_GET['vid'] != 'undefined') {
- if( $_GET['vid'] == 'peli')
-  type = "video/mp4";
-else
+ if($_GET['vid'] == 'peli'){
+    
+    $('#elframe').attr('src',sorz);
+
+ }
+  
+else{
+  var api = flowplayer(0);
+api.conf.embed = false;
+api.conf.fullscreen = false;
+api.conf.title = 'sdfsdf';
   type = 'application/x-mpegurl';
-
-}
-
-api.load({
+  subs = "subsa.vtt";
+  api.load({
   subtitles: [
             { "default": true, // note the quotes around "default"!
               kind: "subtitles", srclang: "en", label: "English",
-              src:  "subs/substest.vtt" }
+              src:  "subs/".subs }
         ],
   title: "Musicon",
   sources: [
@@ -81,6 +85,34 @@ api.load({
    
  
   });
+}
+
+}
+else
+{
+  var api = flowplayer(0);
+api.conf.embed = false;
+api.conf.fullscreen = false;
+api.conf.title = 'sdfsdf';
+  api.load({
+  subtitles: [
+            { "default": true, // note the quotes around "default"!
+              kind: "subtitles", srclang: "en", label: "English",
+              src:  "subs/".subs }
+        ],
+  title: "Musicon",
+  sources: [
+    { type: type,
+      src:  sorz }
+  ]
+}).on("finish", function () {
+ updateSourceAnuncio();
+   
+ 
+  });
+}
+
+
 
 
         

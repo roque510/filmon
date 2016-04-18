@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
 	<h1 class="columns large-8" >'. $row["Nombre"].'</h1>
 	
 	';  ?>
-	<a href="#video"><button class="columns large-2" data-reveal-id="myModal" onclick="updateSource('<?php echo $row["Url"]; ?>','<?php echo $row["Nombre"]; ?>')" >Elegir Canal</button> </a>
+	<a href="#video"><button class="columns large-2" data-reveal-id="myModal" onclick="updateSource('<?php echo $row["Url"]; ?>')" >Play</button> </a>
 	<?php 
 	echo'
 	

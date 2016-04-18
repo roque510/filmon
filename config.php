@@ -2,7 +2,7 @@
 GLOBAL $SVR,$USR,$PW,$DB;
 $DB= "emisoras";
 $SVR = "localhost";
-$PW = "root";
+$PW = "";
 $USR = "root";
 
 ?>

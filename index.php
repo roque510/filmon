@@ -51,72 +51,7 @@ require_once("funciones.php");
 
   <body class="body1" onload="startTime()" style="text-shadow:0.2em 0.2em 0.2em black; min-height: 100%; height:auto;">
 
-  <?php	/*
-	/** Incude the Viral Locker Class **/
-	//require_once( 'viral-lock.class.php' );
-	/** New Viral Object **/
-	//$virallocker = new virallocker_class();
-	/** Get the default array **/ 
-	//$defArr = $virallocker->default_vl_array();
-	/** Define the specific page VL fields if you want to **/
-	/*$pageVLArr = array( 
-						'URL' => 'www.musicon.me',
-						'TURL' => 'https://twitter.com/musicon_me',
-						'GURL' => 'https://plus.google.com/104294325203873300725/posts',
-						'FURL' => 'https://www.facebook.com/Music%C3%B3n-1483702121941811/?fref=ts',
-						'MESSAGE' => 'Dale like en facebook, twitea o compartenos en G+ para mostrarte los canales y programas disponibles.',
-						'MY_ID' => 'myid12456',
-						'TWEET' => 'Encontre esta fabulosa pagina! mirenla @musicon_me',
-						'DELAY' => 10
-					);
 
-	/** Set the VL fields **/
-	/*if (isset($pageVLArr["MY_ID"]) && !empty($pageVLArr["MY_ID"])) $my_id = $pageVLArr["MY_ID"];
-	if (isset($pageVLArr["TWEET"]) && !empty($pageVLArr["TWEET"])) $tweet = $pageVLArr["TWEET"];
-	else $tweet = $defArr["TWEET"];
-	//if (isset($pageVLArr["URL"]) && !empty($pageVLArr["URL"])) $my_url = $pageVLArr["URL"];
-	//else $my_url = $defArr["URL"];
-	
-	if ( isset( $pageVLArr["TURL"] ) && !empty( $pageVLArr["TURL"] ) ) {
-		$turl = $pageVLArr["TURL"];
-	} elseif( empty( $pageVLArr["TURL"] ) && isset( $pageVLArr["URL"] ) && !empty( $pageVLArr["URL"] )) {
-		$turl = $pageVLArr["URL"];
-	} else {
-		$turl = $defArr["URL"];
-	}
-	
-	if ( isset( $pageVLArr["GURL"] ) && !empty( $pageVLArr["GURL"] ) ) {
-		$gurl = $pageVLArr["GURL"];
-	} elseif( empty( $pageVLArr["GURL"] ) && isset( $pageVLArr["URL"] ) && !empty( $pageVLArr["URL"] )) {
-		$gurl = $pageVLArr["URL"];
-	} else {
-		$gurl = $defArr["URL"];
-	}
-	
-	if ( isset( $pageVLArr["FURL"] ) && !empty( $pageVLArr["FURL"] ) ) {
-		$furl = $pageVLArr["FURL"];
-	} elseif( empty( $pageVLArr["FURL"] ) && isset( $pageVLArr["URL"] ) && !empty( $pageVLArr["URL"] )) {
-		$furl = $pageVLArr["URL"];
-	} else {
-		$furl = $defArr["URL"];
-	}
-	
-	if ( isset( $pageVLArr["DELAY"] ) && !empty( $pageVLArr["DELAY"] ) ) {
-		$delay = $pageVLArr["DELAY"] * 1000;
-	} else {
-		$delay = $defArr["DELAY"];
-	}
-	
-	if (isset($pageVLArr["MESSAGE"]) && !empty($pageVLArr["MESSAGE"])) $message = $pageVLArr["MESSAGE"];
-	else $message = $defArr["VIRALLOCKER_DEFAULTMESSAGE"];
-
-	/** Check if viral lock is active or not to show/hide the content accordingly **/
-	/*if( isset( $_COOKIE["virallock_".$my_id] ) )
-	$cookie_value = $_COOKIE["virallock_".$my_id];
-	if( !empty( $cookie_value ) && $cookie_value == $defArr['VIRALLOCKER_COOKIEVALUE'] )
-	{*/
-	?>
-		<!-- AQUI OCMIENZAAAA -->
 	
 <div class="row container">
   <div class="secondary button-group">
@@ -126,7 +61,26 @@ require_once("funciones.php");
 </div>
 <div class="row" id="video" style=" margin-left: 20px; margin-bottom: 20px; ">
 
-<div class="columns large-12 large-offset-2 container" style="margin-bottom: 50px;">
+
+ <!-- VIDEO TAGS -->
+ <?php 
+ 	$vidtype = 'flow';
+ 	if (isset($_GET['vid'])) {
+ 		if ($_GET['vid'] == "peli") {
+ 					$vidtype = "iframe";
+ 		}
+ 		else{
+ 			$vidtype = "flow";
+ 		}
+
+
+ 	}
+
+ 	if ($vidtype == 'flow') {
+ 	
+
+ ?>
+ <div class="columns large-12 large-offset-2 container" style="margin-bottom: 50px;">
  <div  id="player" data-live="true"
      data-ratio="0.5625"     
      embed="false"
@@ -140,6 +94,24 @@ require_once("funciones.php");
    </video>
   
 </div>
+<?php 
+#end of if vidtype is flow	
+ 	}
+ 	else {
+ ?>
+
+<div class="columns large-12 large-offset-1 container" style="margin-bottom: 50px;">
+<div class="video-container">
+    <iframe id="elframe" src="http://www.spruto.tv/iframe_embed.php?video_id=180754" height="400" width="560" allowfullscreen="" frameborder="0">
+    </iframe>
+</div>
+<?php 
+
+#end of else vidtype is flow	
+ 	}
+ 	
+ ?>
+ <!-- END VIDEO TAGS -->
 </div>
 
 
@@ -169,24 +141,7 @@ require_once("funciones.php");
 
   ?>
   <!-- AQUI TERMINA -->
-	<?php /*
-	}
-	else 
-	{
-		echo '
-			<script type="text/javascript">
-				virallocker_use = true;
-			</script>
-			<div class="virallocker-box">
-				'.$message.'
-				<div><a href="http://twitter.com/share" class="twitter-share-button" data-text="'.$tweet.'" data-url="'.$turl.'" data-count="horizontal" data-lang="en">Tweet</a></div>
-				<div><g:plusone size="medium" annotation="inline" callback="virallocker_plusone" href="'.$gurl.'"></g:plusone></div>
-				<div><fb:like id="fbLikeButton" href="'.$furl.'" show_faces="false" width="450"></fb:like></div>
-			</div>';
-	}
-/** Include the required fb div and short code handler **/
-//$virallocker->virallocker_handler( $my_id, $pageVLArr, $delay );
-?>
+	
 
 
 <script type="text/javascript">
