@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
 	<div class="columns large-2">
 	<img class=" thumbnail" width=100 height=100 src="'. $row["Foto"].'" />
 	</div>
-	<h1 class="columns large-8" >'. $row["Nombre"].'</h1>
+	<h1 class="columns large-8" >'. $row["Nombre"].'<br><p style="color:white; font-size:20px;">'.$row["desc"].'</p>
 	
 	';  ?>
 	<a href="#video"><button class="columns large-2" data-reveal-id="myModal" onclick="updateSource('<?php echo $row["Url"]; ?>')" >Play</button> </a>

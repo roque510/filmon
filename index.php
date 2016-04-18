@@ -6,7 +6,7 @@ require_once("funciones.php");
 <!DOCTYPE html>
 <html style="min-height: 100%;">
 
-  <head style="background-color: red;"><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+  <head style="background-color: red;"><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Musicon | Bienvenido</title>
@@ -154,6 +154,7 @@ flowplayer.conf.fullscreen = false;
   	<script src="js/magic.js"></script>
     <script src="js/jplayer.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/foundation.tooltip.js"></script>
     
 
 
@@ -165,16 +166,17 @@ flowplayer.conf.fullscreen = false;
 });
 
   $(document).ready(function(){$('#play').foundation('reveal', 'open')});
-
+var elem = new Foundation.Tooltip(element, options);
 flowplayer.conf = { 
 embed = false;
 fullscreen = false;
 
 };
 
-
+var elem = new Foundation.Tooltip(element, options);
 $('#Form').foundation('reveal', 'open');
       $(document).foundation();
+      $('.has-tip').foundation();
     </script>
     <div id="txt"></div>
 
