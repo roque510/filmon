@@ -1,0 +1,5 @@
+[08-Jun-2016 03:46:23 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1130] Host 'ip-107-180-41-38.ip.secureserver.net' is not allowed to connect to this MySQL server' in /home/musicon/public_html/filmon/medoo.php:150
+Stack trace:
+#0 /home/musicon/public_html/filmon/login.php(27): medoo->__construct(Array)
+#1 {main}
+  thrown in /home/musicon/public_html/filmon/medoo.php on line 150

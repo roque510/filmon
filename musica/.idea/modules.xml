@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/musica.iml" filepath="$PROJECT_DIR$/.idea/musica.iml" />
+      <module fileurl="file://file:C:/wamp//C:/wamp/www/musica/.idea/musica.iml" filepath="file:$PROJECT_DIR$/../..//C:/wamp/www/musica/.idea/musica.iml" />
+      <module fileurl="file://file:C:/wamp////ARMANDO/musica/.idea/musica.iml" filepath="file:$PROJECT_DIR$/../..////ARMANDO/musica/.idea/musica.iml" />
+      <module fileurl="file://file:C:/wamp////ARMANDO/musica/.idea/musica.iml" filepath="file:$PROJECT_DIR$/../..////ARMANDO/musica/.idea/musica.iml" />
+    </modules>
+  </component>
+</project>
+
