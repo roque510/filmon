@@ -53,7 +53,10 @@ if (miembro === null){
   
 }
 
+
+
  function updateSource(sorz) {
+  changech(sorz);
 playing();
 var type = "application/x-mpegurl";
 var subs = "subsa.vtt";
@@ -274,6 +277,35 @@ fd.append( 'id', chplus.attr("ch-id") );
 
   
 });
+
+function changech(sorz){
+
+var fd = new FormData();    
+fd.append( 'url', sorz );
+
+  $.ajax({ url: 'getch.php',
+         data: {url: sorz},
+         dataType: "json",
+         type: 'post',
+         success: function(data) {
+              if(data.response == "correcto"){
+                $("#img").attr("src",data.foto);
+                $("#nombre").html(data.nombre);
+                $("#nombrePLAY").html(data.nombre);                              
+                chplus.attr("ch-id",data.newid);
+                chplus.attr("ch-url",data.newurl);
+                chminus.attr("ch-id",data.newid);
+                chminus.attr("ch-url",data.newurl);
+                
+              }
+              else {
+                alert(data.response);
+              }
+                  }
+});
+
+
+}
 
 $("#play").on('click',function(){
 
