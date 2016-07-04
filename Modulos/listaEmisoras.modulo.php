@@ -17,8 +17,12 @@ else
 }
 
 
+if ($type == 'videos') {
+	$sql = "SELECT * FROM ".$type." ORDER BY  `videos`.`desc` ASC ";
+}
+else
+	$sql = "SELECT * FROM ".$type;
 
-$sql = "SELECT * FROM ".$type;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -33,7 +37,7 @@ if ($result->num_rows > 0) {
 
 	<div class="row" style="border:1pt dashed black;" >
 	<div class="columns large-2">
-	<img class=" thumbnail" width=100 height=100 src="'. $row["Foto"].'" />
+	<img class=" thumbnail" width=100 height=100 src="'. $row["Foto"].'" onerror="this.src=`http://www.angelman.org/wp-content/themes/aaika/assets/images/default.jpg`" />
 	</div>
 	<h1 class="columns large-8" >'. $row["Nombre"].'<br><p style="color:white; font-size:20px;">'.$row["desc"].'</p>
 	
