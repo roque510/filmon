@@ -165,6 +165,7 @@ flowplayer.conf.fullscreen = false;
     <script src="js/jplayer.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/foundation.js"></script>
+    foundation.accordion.js
     <script src="js/foundation/foundation.tooltip.js"></script>
     
 
@@ -246,11 +247,34 @@ function autoPlayVideo(){
 <!-- global options -->
 <script>
 flowplayer.conf = {
-   ratio: 5/12,
+   ratio: 25/47,
    embed: false,
    fullscreen: true,
    
 };
+
+ 
+flowplayer(function (api, root) {
+  api.on("error", function (e, api, err) {
+    if (err.code === 4) { // Video file not found
+ 
+      // reset state
+      api.error = api.loading = false;
+ 
+      // change the skin color and alert the user
+      $(root).removeClass("is-error")
+             .append("<p class=\"replacement\">Replacement video!</p>");
+ 
+      // load safe replacement video sources
+      api.load({
+        sources: [
+          { type: "video/webm",  src: "//stream.flowplayer.org/black/470x250.webm" },
+          { type: "video/mp4",   src: "//stream.flowplayer.org/black/470x250.mp4" }
+        ]
+      });
+    }
+  });
+});
 </script>
   <script>
       $(function () {

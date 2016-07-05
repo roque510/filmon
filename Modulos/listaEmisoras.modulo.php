@@ -36,24 +36,29 @@ if ($result->num_rows > 0) {
 	echo '
 
 	<div class="row" style="border:1pt dashed black;" >
-	<div class="columns large-2">
+	<div class="columns small-2">
 	<img class=" thumbnail" width=100 height=100 src="'. $row["Foto"].'" onerror="this.src=`http://www.angelman.org/wp-content/themes/aaika/assets/images/default.jpg`" />
 	</div>
-	<h1 class="columns large-8" >'. $row["Nombre"].'<br><p style="color:white; font-size:20px;">'.$row["desc"].'</p>
+	<h5 class="columns small-8" style="overflow:hidden;">'. $row["Nombre"].'<br><p style="color:white;">'.$row["desc"].'</p></h5>
 	
 	';  ?>
-	<a href="#video"><button class="columns large-2" data-reveal-id="myModal" onclick="updateSource('<?php echo $row["Url"]; ?>')" >Play</button> </a>
-	<?php 
+	<a href="#video"><button class="columns small-2" data-reveal-id="myModal" onclick="updateSource('<?php echo $row["Url"]; ?>')" >Play</button> </a>
+	<?php
 	if ($type == 'peliculas') {
-		if ($_SESSION['date'] == 'vigente') {
-			if ($row["subs"] != "") {
-				echo '<a style="margin-left:10px; margin-top:10px;" class="large button" href="'.$row["subs"].'">Descargar</a>';	
-			}
+		if (isset($_SESSION['date'])){
+			if ($_SESSION['date'] == 'vigente') {
+				if ($row["subs"] != "") {
+					echo '<a style="margin-left:10px; margin-top:10px;" class="large button" href="'.$row["subs"].'">Descargar</a>';	
+				}
 						
+			}
+			else
+				if ($row["subs"] != "")
+				echo '<a style="margin-left:10px; margin-top:10px;" class="large button" href="#" onclick="infomem()">Actualiza tu membresia para descargar</a>';
 		}
 		else
-			if ($row["subs"] != "")
-			echo '<a style="margin-left:10px; margin-top:10px;" class="large button" href="#" onclick="infomem()">Actualiza tu membresia para descargar</a>';
+				if ($row["subs"] != "")
+				echo '<a style="margin-left:10px; margin-top:10px;" class="large button" href="#" onclick="infomem()">Actualiza tu membresia para descargar</a>';
 	}
 
 
@@ -75,3 +80,4 @@ $conn->close();
 
 
 ?>
+
