@@ -1,7 +1,25 @@
-<div  class="row container">
-  <div class="secondary button-group">
+<div  class="row collapse">
+  <div class="secondary button-group large-4 columns">
   <a class="button" href="?vid=canales">Canales</a>
   <a class="button" href="?vid=peli">Peliculas</a>  
+</div>
+
+<div class="large-8 columns">
+  <?php
+      $q = "";
+     if (isset($_GET['q'])) {
+      $q = $_GET['q'];
+    } ?>
+  <div class="row collapse">
+    <div class="large-8 small-9 columns">
+      <input id="searchbar" type="text" value="<?php echo $q; ?>" placeholder="Busca tus canales aqui">
+    </div>
+
+    <div class="large-4 small-3 columns">
+      <a id="buscar" href="#" class="alert button expand">Buscar</a>
+    </div>
+  </div>
+
 </div>
 </div>
 <div class="row"  id="video" style=" margin-left: 20px; margin-bottom: 20px; ">

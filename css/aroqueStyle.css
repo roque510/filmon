@@ -1,4 +1,89 @@
 /* override default looks */
+.center.row {
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  max-width: 500px;
+}
+
+.signup-panel {
+  padding: 15px;
+}
+
+.signup-panel i {
+  font-size: 30px;
+  line-height: 50px;
+  color: #999;
+}
+
+.signup-panel form input, .signup-panel form span {
+  height: 50px;
+}
+
+.signup-panel .welcome {
+  font-size: 26px;
+  text-align: center;
+  margin-left: 0;
+}
+
+.signup-panel .button {
+  margin-left: 35%;
+}
+
+section.active {
+  padding-top: 75px !important;
+}
+
+p.title {
+  border-bottom: 1px solid #cccccc !important;
+}
+
+.content{
+  height: 450px;
+}
+
+.center.row {
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  max-width: 500px;
+}
+
+.signup-panel {
+  padding: 15px;
+  i {
+    font-size: 30px;
+    line-height: 50px;
+    color: #999;
+  }
+  form {
+    input, span {
+      height: 50px;
+    }
+  }
+  .welcome {
+    font-size: 26px;
+    text-align: center;
+    margin-left: 0;
+  }
+  .button {
+    margin-left: 35%;
+  }
+}
+
+section.active {
+  padding-top: 75px !important;
+}
+
+p.title {
+  border-bottom: 1px solid #cccccc !important;
+}
+
+.content {
+  height: 450px;
+}
 
 .iniciaSe{  
   color: white;
@@ -33,6 +118,22 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* replacement notification - can be omitted */
+.flowplayer .replacement {
+  position: absolute;
+  top: 50px;
+  left: 5px;
+  padding: 4px;
+  background: #fff;
+  color: #900;
+  font-weight: bold;
+  z-index: 1;
+  display: none;
+}
+.flowplayer.is-ready .replacement {
+  display: block;
 }
 
 /* customized error message */

@@ -16,9 +16,16 @@ else
 	$type = 'videos';
 }
 
+if(isset($_GET['q'])){
+$where = " WHERE `Nombre` LIKE '%".$_GET['q']."%'";
+
+}
+else
+	$where = '';
+
 
 if ($type == 'videos') {
-	$sql = "SELECT * FROM ".$type." ORDER BY  `videos`.`desc` ASC ";
+	$sql = "SELECT * FROM ".$type.$where." ORDER BY  `videos`.`desc` ASC ";
 }
 else
 	$sql = "SELECT * FROM ".$type;
@@ -42,7 +49,7 @@ if ($result->num_rows > 0) {
 	<h5 class="columns small-8" style="overflow:hidden;">'. $row["Nombre"].'<br><p style="color:white;">'.$row["desc"].'</p></h5>
 	
 	';  ?>
-	<a href="#video"><button class="columns small-2" data-reveal-id="myModal" onclick="updateSource('<?php echo $row["Url"]; ?>')" >Play</button> </a>
+	<a href="#video"><button class="columns small-2 button" data-reveal-id="myModal" onclick="updateSource('<?php echo $row["Url"]; ?>')" >Play</button> </a>
 	<?php
 	if ($type == 'peliculas') {
 		if (isset($_SESSION['date'])){

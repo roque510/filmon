@@ -165,7 +165,7 @@ flowplayer.conf.fullscreen = false;
     <script src="js/jplayer.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/foundation.js"></script>
-    foundation.accordion.js
+    <!-- foundation.accordion.js -->
     <script src="js/foundation/foundation.tooltip.js"></script>
     
 
@@ -233,13 +233,6 @@ function autoPlayVideo(){
 </script>
 
 
-<div id="myModal" class="reveal-modal " data-reveal aria-labelledby="modalTitle" aria-hidden="true" style="480px;" role="dialog">
-  
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <div id="videoContainera">
-  <iframe width="1280" height="720" src="https://www.youtube.com/embed/2aZrODIAbZ0?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-  </div>
-</div>
 
 <script src="js/flowplayer.min.js"></script>
 

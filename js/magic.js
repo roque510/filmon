@@ -243,6 +243,16 @@ fd.append( 'id', chplus.attr("ch-id") );
   
 });
 
+$('#buscar').on('click',function(e){
+  
+  location.href = "?vid=canales&q=" + $('#searchbar').val();
+});
+
+$('#searchbar').keypress(function(e) {
+    if(e.which == 13) {
+        location.href = "?vid=canales&q=" + $('#searchbar').val();
+    }
+});
 
 
 chminus.on('click',function(e){
