@@ -249,6 +249,7 @@ flowplayer.conf = {
  
 flowplayer(function (api, root) {
   api.on("error", function (e, api, err) {
+    console.log(err.message);
     if (err.code === 4) { // Video file not found
  
       // reset state
@@ -256,13 +257,12 @@ flowplayer(function (api, root) {
  
       // change the skin color and alert the user
       $(root).removeClass("is-error")
-             .append("<p class=\"replacement\">Replacement video!</p>");
+             .append("");
  
       // load safe replacement video sources
       api.load({
-        sources: [
-          { type: "video/webm",  src: "//stream.flowplayer.org/black/470x250.webm" },
-          { type: "video/mp4",   src: "//stream.flowplayer.org/black/470x250.mp4" }
+        sources: [          
+          { type: "video/mp4",   src: "img/error.mp4" }
         ]
       });
     }

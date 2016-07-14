@@ -70,9 +70,9 @@ if (!isset($_SESSION['usrm'])) {
 
 
 
-   <video data-title="MUSICON" autoplay  loop data-title="Autoplay">
+   <video crossorigin="anonymous" data-title="MUSICON" autoplay  loop data-title="Autoplay">
 <source id="VOD" type="application/x-mpegurl"
-        src="http://rmtvlive-lh.akamaihd.net/i/rmtv_1@154306/master.m3u8">
+        src="http://grilla.gigared.com.ar/streams/166V4/3/1.m3u8">
         <track kind="subtitles" default srclang="en" label="English"
              src="subs/subsa.vtt">
    </video>

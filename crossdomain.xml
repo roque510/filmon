@@ -1,6 +1,10 @@
-<?xml version="1.0"?>
-<!DOCTYPE cross-domain-policy SYSTEM
-"http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
-<cross-domain-policy>
-  <allow-access-from domain="*" />
-</cross-domain-policy>
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+<CORSRule>
+<AllowedOrigin>*</AllowedOrigin>
+<AllowedMethod>GET</AllowedMethod>
+<AllowedMethod>HEAD</AllowedMethod>
+<MaxAgeSeconds>3000</MaxAgeSeconds>
+<AllowedHeader>*</AllowedHeader>
+</CORSRule> </CORSConfiguration>
+<html <?xml version="1.0"?> <!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd"> <cross-domain-policy> <allow-access-from domain="*" /> </cross-domain-policy>
