@@ -31,14 +31,14 @@ $data = $database->query($query)->fetchAll();
             <label>
               usuario<span class="req">*</span>
             </label>
-            <input name="usuario" type="text"required autocomplete="off"/>
+            <input name="usuario" type="text" required autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
             <label>
               <?php echo utf8_decode("Contraseña"); ?><span class="req">*</span>
             </label>
-            <input name="pass" type="password"required autocomplete="off"/>
+            <input name="pass" type="password" required autocomplete="off"/>
           </div>
           
           <p class="forgot"><a href="/membresia/index.php">Olvido <?php echo utf8_decode("Contraseña?"); ?></a></p>

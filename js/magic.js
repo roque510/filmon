@@ -317,6 +317,89 @@ fd.append( 'url', sorz );
 
 }
 
+$(".ag").on('click',function(e){
+$valor = $(this).attr('idUser');
+  e.preventDefault();
+var form = new FormData();    
+form.append( 'id', $valor );
+form.append( 'url', "si" );
+//fd.append( 'id', chplus.attr("ch-id") );
+swal({   title: "Seguro?",   text: "quieres agregarle 30 dias de membresia a este usuario?",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Si, Agregar",   closeOnConfirm: false }, function(){   
+  
+    $.ajax({            
+            url: 'adddays.php',
+            data: form,
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            type: 'POST',         
+            success: function (data) {
+              if(data.response == "correcto"){
+                
+                swal("Excelente!", "Se han agregado 30 dias a este usuario.", "success");
+                location.href = "index.php?pg=Autorizaciones";
+                
+              }
+              else {
+                swal("Error...", "Oh no... tu solicitud no se efectuo contacta a Musicon y comentale este error", "error");
+              }
+            },
+            error: function(){
+              alert('error');
+            }
+          });
+
+   });
+
+            
+});
+
+$(".tomar").on('click',function (e){
+
+  e.preventDefault();
+var form = new FormData();    
+form.append( 'user', $(this).attr('idUser') );
+form.append( 'session', $(this).attr('idSession') );
+//fd.append( 'id', chplus.attr("ch-id") );
+swal({   title: "Atencion!",   text: "Quieres tomar a este usuario bajo su patrocinio?",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Si, Agregar",   closeOnConfirm: false }, function(){   
+  
+    $.ajax({            
+            url: 'getChild.php',
+            data: form,
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            type: 'POST',         
+            success: function (data) {
+              if(data.response == "correcto"){
+                
+                swal("Excelente!", "Se han agregado a este usuario.", "success");
+                location.href = "index.php?pg=Autorizaciones";
+                
+              }
+              else {
+                swal("Error...", "Oh no... tu solicitud no se efectuo contacta a Musicon y comentale este error", "error");
+              }
+            },
+            error: function(obj){
+              var out = '';
+    for (var i in obj) {
+        out += i + ": " + obj[i] + "\n";
+    }
+
+    alert(out);
+              alert('error');
+            }
+          });
+
+   });
+});
+
+$("#finduser").on('click',function(e){
+  $q = $('#searchUser').val();
+  location.href = "index.php?pg=Autorizaciones&q="+$q;
+});
+
 $("#play").on('click',function(){
 
  $("#nombrePLAY").html($("#nombre").html()); 

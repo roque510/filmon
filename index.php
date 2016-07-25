@@ -148,7 +148,7 @@ else
   
 
   ?>
-  <!-- AQUI TERMINA -->
+
 	
 
 
@@ -167,9 +167,6 @@ flowplayer.conf.fullscreen = false;
     <script src="js/foundation.js"></script>
     <!-- foundation.accordion.js -->
     <script src="js/foundation/foundation.tooltip.js"></script>
-    
-
-
 
   <script type="text/javascript">
 

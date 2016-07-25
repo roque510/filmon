@@ -2,6 +2,9 @@
 require_once ('medoo.php');
 require_once('funciones.php');
 require_once('config.php');
+date_default_timezone_set('America/Tegucigalpa');
+
+
 session_start();
 
 
@@ -46,18 +49,23 @@ if ($database->has("users", [
 	$cookie_value = md5($token);
 
 	if(!isset($_COOKIE[$cookie_name])) {
+		
     	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
     	$database->update("users", [
-			"cook" => $_COOKIE[$cookie_name]
+			"cook" => $cookie_value
 		], [
 			"username" => $alias
 		]);
+
+		
 	} else {
     $valorT = $database->get("users", [
 	"cook"
 	], [
 		"username" => $alias
 	]);
+
+	
 
 	if ($valorT['cook'] != $_COOKIE[$cookie_name]) {
 		$database->update("users", [
@@ -91,7 +99,11 @@ if ($database->has("users", [
 
 	
 	if ($profile['membership_id'] > 0) {
-		if (new DateTime() > new DateTime(implode($date))){
+		$datel = date('Y-m-d h:i:s', time());
+		
+		//$nxtdate = new DateTime(implode($date));
+		//echo $nxtdate;
+		if ($datel > $date['mem_expire']){
 	  		$_SESSION['date'] = "vencido";
 		}
 		else {

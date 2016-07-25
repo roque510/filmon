@@ -1,4 +1,17 @@
 /* override default looks */
+.titles{
+  color:white;
+  font-size: 20px;
+  text-shadow: 0.1em 0.1em 0.1em black;
+}
+
+.subti{
+  color:white;
+  font-size: 20px;
+  text-shadow: 0.1em 0.1em 0.1em grey;
+
+}
+
 .center.row {
   height: 300px;
   margin-left: auto;
